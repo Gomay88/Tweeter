@@ -15,6 +15,13 @@
 		826A93E02473E53E00379297 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 826A93DE2473E53E00379297 /* LaunchScreen.storyboard */; };
 		826A93EB2473E53E00379297 /* TweeterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A93EA2473E53E00379297 /* TweeterTests.swift */; };
 		826A93F62473E53E00379297 /* TweeterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A93F52473E53E00379297 /* TweeterUITests.swift */; };
+		826A94072473E88600379297 /* BaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A94062473E88600379297 /* BaseRepository.swift */; };
+		826A94092473E89F00379297 /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A94082473E89F00379297 /* HttpRequest.swift */; };
+		826A940B2473E8B500379297 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A940A2473E8B500379297 /* RequestBuilder.swift */; };
+		826A940D2473EA6700379297 /* TweeterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A940C2473EA6700379297 /* TweeterRepository.swift */; };
+		826A940F2473EF5100379297 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A940E2473EF5100379297 /* Constants.swift */; };
+		82A080D52473F87F00058828 /* OauthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A080D42473F87F00058828 /* OauthResponse.swift */; };
+		82A080D72473F8DC00058828 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A080D62473F8DC00058828 /* LoginInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +56,13 @@
 		826A93F12473E53E00379297 /* TweeterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TweeterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		826A93F52473E53E00379297 /* TweeterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweeterUITests.swift; sourceTree = "<group>"; };
 		826A93F72473E53E00379297 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		826A94062473E88600379297 /* BaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRepository.swift; sourceTree = "<group>"; };
+		826A94082473E89F00379297 /* HttpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
+		826A940A2473E8B500379297 /* RequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
+		826A940C2473EA6700379297 /* TweeterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweeterRepository.swift; sourceTree = "<group>"; };
+		826A940E2473EF5100379297 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		82A080D42473F87F00058828 /* OauthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OauthResponse.swift; sourceTree = "<group>"; };
+		82A080D62473F8DC00058828 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +115,10 @@
 			children = (
 				826A93D32473E53100379297 /* AppDelegate.swift */,
 				826A93D52473E53100379297 /* SceneDelegate.swift */,
-				826A93D72473E53100379297 /* ViewController.swift */,
-				826A93D92473E53100379297 /* Main.storyboard */,
+				826A940E2473EF5100379297 /* Constants.swift */,
+				826A94052473E6B400379297 /* Presentation */,
+				826A94032473E6A600379297 /* Data */,
+				826A94042473E6AB00379297 /* Domain */,
 				826A93DC2473E53E00379297 /* Assets.xcassets */,
 				826A93DE2473E53E00379297 /* LaunchScreen.storyboard */,
 				826A93E12473E53E00379297 /* Info.plist */,
@@ -126,6 +142,43 @@
 				826A93F72473E53E00379297 /* Info.plist */,
 			);
 			path = TweeterUITests;
+			sourceTree = "<group>";
+		};
+		826A94032473E6A600379297 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				826A94062473E88600379297 /* BaseRepository.swift */,
+				826A94082473E89F00379297 /* HttpRequest.swift */,
+				826A940A2473E8B500379297 /* RequestBuilder.swift */,
+				826A940C2473EA6700379297 /* TweeterRepository.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		826A94042473E6AB00379297 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				82A080D62473F8DC00058828 /* LoginInteractor.swift */,
+				82A080D32473F86D00058828 /* Model */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		826A94052473E6B400379297 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				826A93D72473E53100379297 /* ViewController.swift */,
+				826A93D92473E53100379297 /* Main.storyboard */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		82A080D32473F86D00058828 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				82A080D42473F87F00058828 /* OauthResponse.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,8 +313,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				826A93D82473E53100379297 /* ViewController.swift in Sources */,
+				826A94092473E89F00379297 /* HttpRequest.swift in Sources */,
 				826A93D42473E53100379297 /* AppDelegate.swift in Sources */,
+				826A940D2473EA6700379297 /* TweeterRepository.swift in Sources */,
+				82A080D52473F87F00058828 /* OauthResponse.swift in Sources */,
+				826A940B2473E8B500379297 /* RequestBuilder.swift in Sources */,
+				826A94072473E88600379297 /* BaseRepository.swift in Sources */,
+				82A080D72473F8DC00058828 /* LoginInteractor.swift in Sources */,
 				826A93D62473E53100379297 /* SceneDelegate.swift in Sources */,
+				826A940F2473EF5100379297 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

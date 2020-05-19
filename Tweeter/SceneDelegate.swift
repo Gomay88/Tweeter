@@ -1,17 +1,9 @@
-//
-//  SceneDelegate.swift
-//  Tweeter
-//
-//  Created by Ana Real on 19/05/2020.
-//  Copyright © 2020 Gomi. All rights reserved.
-//
 
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
