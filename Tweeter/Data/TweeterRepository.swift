@@ -2,11 +2,11 @@
 import Foundation
 
 protocol TweeterRepository {
-    func oauthLogin(completion: @escaping (OauthResponse?, Error?) -> ())
+    func oauthLogin(completion: @escaping (_ logged: Bool) -> ())
 }
 
 class TweeterRepositoryDefault: BaseRepository, TweeterRepository {
-    func oauthLogin(completion: @escaping (OauthResponse?, Error?) -> ()) {
+    func oauthLogin(completion: @escaping (Bool) -> ()) {
         let token = Constants.apiKey + ":" + Constants.apiSecret
         
         let request = RequestBuilder.tweeter()
@@ -16,6 +16,14 @@ class TweeterRepositoryDefault: BaseRepository, TweeterRepository {
             .path("oauth2/token")
             .builtHttpRequest()
         
-        execute(request: request, responseType: OauthResponse.self, completion: completion)
+        execute(request: request, responseType: OauthResponse.self) { (oauth, error) in
+            guard let token = oauth?.access_token else {
+                completion(false)
+                return
+            }
+            
+            Constants.token = "Bearer \(token)"
+            completion(true)
+        }
     }
 }
