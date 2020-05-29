@@ -8,14 +8,20 @@ public enum HTTPMethod: String {
     case delete = "DELETE"
 }
 
+public enum Encoded {
+    case url
+    case body
+}
+
 open class RequestBuilder {
     
     fileprivate var host: String
     fileprivate var path: String
     
     fileprivate var headers: [String: String]
-    fileprivate var parameter: String?
+    fileprivate var parameter: Encodable?
     fileprivate var method: HTTPMethod
+    fileprivate var encoded: Encoded
     
     fileprivate var urlTemplate: (String, String) -> (String)
     
@@ -25,6 +31,7 @@ open class RequestBuilder {
         
         self.headers = [:]
         self.method = .get
+        self.encoded = .url
         
         self.urlTemplate = urlTemplate
     }
@@ -49,7 +56,7 @@ open class RequestBuilder {
         return self
     }
     
-    open func parameter(_ parameter: String) -> Self {
+    open func parameter(_ parameter: Encodable) -> Self {
         self.parameter = parameter
         return self
     }
@@ -75,16 +82,27 @@ open class RequestBuilder {
         return method(.delete)
     }
     
+    open func encoded(_ encoded: Encoded) -> Self {
+        self.encoded = encoded
+        return self
+    }
+    
     open func builtHttpRequest() -> HttpRequest {
         let url = urlTemplate(host, path)
         
-        return HttpRequest(stringURL: url, method: method, headers: headers, parameter: parameter)
+        return HttpRequest(stringURL: url, method: method, headers: headers, parameter: parameter, encoded: encoded)
     }
 }
 
 extension RequestBuilder {
-    public static func tweeter() -> RequestBuilder {
+    public static func twitter() -> RequestBuilder {
         return RequestBuilder(host: "https://api.twitter.com") { (host, path) in
+            return "\(host)/\(path)"
+        }
+    }
+    
+    public static func stream() -> RequestBuilder {
+        return RequestBuilder(host: "https://stream.twitter.com/1.1") { (host, path) in
             return "\(host)/\(path)"
         }
     }

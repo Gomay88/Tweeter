@@ -39,7 +39,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-
+    
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        guard let url = URLContexts.first?.url else {
+            return
+        }
+        
+        let urlString = url.absoluteString
+        
+        if urlString.contains("mytweeter") {
+            Constants.oauthVerifier = urlString.components(separatedBy: "oauth_verifier=")[1]
+        }
+        
+        NotificationCenter.default.post(name: NSNotification.Name("LoggedInTwitter"), object: nil)
+    }
 
 }
 

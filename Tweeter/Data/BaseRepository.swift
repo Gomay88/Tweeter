@@ -9,7 +9,7 @@ extension BaseRepository {
     func execute<T: Decodable>(request: HttpRequest, responseType: T.Type, completion: @escaping ((_ data: T?, _ error: Error?)->())) {
         var urlComponents = URLComponents(string: request.stringURL)
         
-        if let data = request.parameter?.toJson(), request.method == .get {
+        if let data = request.parameter?.toJson(), request.encoded == .url {
             var queryItems = [URLQueryItem]()
             for (key,param) in data {
                 queryItems.append(URLQueryItem(name: key, value: param as? String))
@@ -26,8 +26,8 @@ extension BaseRepository {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = request.method.rawValue
         
-        if request.method == .post {
-            urlRequest.httpBody = request.parameter?.data(using: String.Encoding.utf8)
+        if request.encoded == .body {
+            urlRequest.httpBody = request.parameter?.data()
             urlRequest.setValue("application/json", forHTTPHeaderField: "content-type")
         }
         
@@ -77,8 +77,13 @@ extension BaseRepository {
         
             completion(try JSONDecoder().decode(type, from: jsonData), nil)
         } catch {
-            let error = DecodingError.dataCorrupted(DecodingError.Context(codingPath: [], debugDescription: error.localizedDescription))
-            completion(nil, error)
+            guard let dataString = String(data: data, encoding: .utf8) else {
+                let error = DecodingError.dataCorrupted(DecodingError.Context(codingPath: [], debugDescription: error.localizedDescription))
+                completion(nil, error)
+                return
+            }
+            
+            completion(dataString as? T, nil)
         }
     }
 }
