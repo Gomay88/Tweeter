@@ -1,7 +1,5 @@
 
 import Foundation
-import SwifteriOS
-import SafariServices
 
 protocol ListTweetsPresenter {
     func setView(view: ListTweetsViewController)

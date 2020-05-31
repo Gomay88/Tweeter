@@ -23,8 +23,6 @@
 		826A940D2473EA6700379297 /* TwitterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A940C2473EA6700379297 /* TwitterRepository.swift */; };
 		826A940F2473EF5100379297 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A940E2473EF5100379297 /* Constants.swift */; };
 		82A080D924744D3C00058828 /* GetTweetsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A080D824744D3C00058828 /* GetTweetsInteractor.swift */; };
-		82A080DC247679F200058828 /* SwifteriOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82A080DB247679F200058828 /* SwifteriOS.framework */; };
-		82A080DD247679F200058828 /* SwifteriOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 82A080DB247679F200058828 /* SwifteriOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		82A080E024767AF800058828 /* ListTweetsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A080DF24767AF800058828 /* ListTweetsPresenter.swift */; };
 		82E170D824825F15001550A3 /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E170D724825F15001550A3 /* Alertable.swift */; };
 		82E170DA24825F40001550A3 /* Spinnable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E170D924825F40001550A3 /* Spinnable.swift */; };
@@ -56,20 +54,6 @@
 			remoteInfo = Tweeter;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		82A080DE247679F300058828 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				82A080DD247679F200058828 /* SwifteriOS.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		8201A8682483A7D60012490D /* TwitDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitDetailViewController.swift; sourceTree = "<group>"; };
@@ -115,7 +99,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82A080DC247679F200058828 /* SwifteriOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,7 +267,6 @@
 				826A93CC2473E53100379297 /* Sources */,
 				826A93CD2473E53100379297 /* Frameworks */,
 				826A93CE2473E53100379297 /* Resources */,
-				82A080DE247679F300058828 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
