@@ -6,13 +6,10 @@ protocol TwitterRepository {
     func requestToken(completion: @escaping (RequestOAuthTokenResponse?, Error?) -> ())
     func oauthAuthorize(token: String, completion: @escaping (String?, Error?) -> ())
     func oauthAccessToken(completion: @escaping (String?, Error?) -> ())
-    func getTwits(completion: @escaping (String?, Error?) -> ())
+    func getTwits(completion: @escaping ([Twit]) -> ())
 }
 
 class TwitterRepositoryDefault: BaseRepository, TwitterRepository {
-    
-    private var userDefaults = UserDefaults.standard
-    
     func requestToken(completion: @escaping (RequestOAuthTokenResponse?, Error?) -> ()) {
         Constants.uuid = UUID().uuidString
         
@@ -89,7 +86,7 @@ class TwitterRepositoryDefault: BaseRepository, TwitterRepository {
         }
     }
     
-    func getTwits(completion: @escaping (String?, Error?) -> ()) {
+    func getTwits(completion: @escaping ([Twit]) -> ()) {
         var headers: [String: String] = [:]
         headers.updateValue(Constants.apiKey, forKey: "oauth_consumer_key")
         headers.updateValue(Constants.uuid, forKey: "oauth_nonce")
@@ -110,14 +107,15 @@ class TwitterRepositoryDefault: BaseRepository, TwitterRepository {
         
         let finalHeader = ["Authorization": "OAuth \(headerString.sorted().joined(separator: ", "))"]
         
-        let request = RequestBuilder.stream()
+        _ = RequestBuilder.stream()
             .post()
             .headers(finalHeader)
             .path("statuses/filter.json?track=I,me")
             .encoded(.url)
             .builtHttpRequest()
         
-        execute(request: request, responseType: String.self, completion: completion)
+        //Here will go my request and everytime I get the correct response I save twits in userdefaults and then with every error I can show the last ones I got stored but because I haven't been able to make the request I mock it.
+        completion(twitsData)
     }
     
     private func oauthSignature(method: String, url: String, headers: [String: Any]) -> String {
