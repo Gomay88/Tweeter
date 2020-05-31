@@ -45,7 +45,7 @@ class ListTweetsViewController: UIViewController, Alertable, Spinnable {
             return
         }
         twitDetailViewController.presenter = TwitDetailPresenterDefault(twit: twit)
-        present(twitDetailViewController, animated: true)
+        navigationController?.pushViewController(twitDetailViewController, animated: true)
     }
 }
 
