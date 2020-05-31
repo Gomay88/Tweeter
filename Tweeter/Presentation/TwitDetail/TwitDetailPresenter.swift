@@ -10,6 +10,8 @@ protocol TwitDetailPresenter {
     func getTwitFollowers() -> Int
     func getTwitTweets() -> Int
     func getTwitFavourites() -> Int
+    func getTwitRetweets() -> Int
+    func getTwitReplies() -> Int
 }
 
 class TwitDetailPresenterDefault: TwitDetailPresenter {
@@ -51,5 +53,13 @@ class TwitDetailPresenterDefault: TwitDetailPresenter {
     
     func getTwitFavourites() -> Int {
         return twit.favourites
+    }
+    
+    func getTwitRetweets() -> Int {
+        return twit.retweet
+    }
+    
+    func getTwitReplies() -> Int {
+        return twit.reply
     }
 }

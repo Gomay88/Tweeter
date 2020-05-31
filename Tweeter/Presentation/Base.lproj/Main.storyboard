@@ -144,13 +144,28 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mtL-6z-lLN">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mtL-6z-lLN">
                                         <rect key="frame" x="0.0" y="409" width="414" height="409"/>
                                         <subviews>
                                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Grp-qz-QxB">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="378.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="200" id="xGV-Tr-fbH"/>
+                                                </constraints>
                                             </mapView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ndo-j4-G6Y">
+                                                <rect key="frame" x="0.0" y="249" width="414" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oqx-6L-icx">
+                                                <rect key="frame" x="0.0" y="319" width="414" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BTu-QS-0mR">
                                                 <rect key="frame" x="0.0" y="388.5" width="414" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -179,6 +194,8 @@
                         <outlet property="locationLabel" destination="fsW-Pi-QXM" id="5Kd-B9-Wqz"/>
                         <outlet property="mapView" destination="Grp-qz-QxB" id="rTW-lB-X7N"/>
                         <outlet property="nameLabel" destination="gLj-zY-ezQ" id="ET3-xg-qOx"/>
+                        <outlet property="replayLabel" destination="BTu-QS-0mR" id="avH-bd-HKC"/>
+                        <outlet property="retweetLabel" destination="oqx-6L-icx" id="Jkg-7d-UWq"/>
                         <outlet property="showMoreButton" destination="a4W-KB-gUy" id="gnB-07-G1R"/>
                         <outlet property="topStack" destination="saD-cb-mbE" id="ZgK-DQ-uZ6"/>
                         <outlet property="userTweetsLabel" destination="5ly-W0-GVm" id="rYj-2c-vXd"/>

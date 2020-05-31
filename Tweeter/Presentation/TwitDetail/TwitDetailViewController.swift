@@ -14,6 +14,8 @@ class TwitDetailViewController: UIViewController, Spinnable, Alertable {
     @IBOutlet weak var bottomStack: UIStackView!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var favouritesLabel: UILabel!
+    @IBOutlet weak var retweetLabel: UILabel!
+    @IBOutlet weak var replayLabel: UILabel!
     
     var presenter: TwitDetailPresenter!
     
@@ -27,6 +29,8 @@ class TwitDetailViewController: UIViewController, Spinnable, Alertable {
         followersLabel.text = "Total followers: \(presenter.getTwitFollowers())"
         userTweetsLabel.text = "Total tweets: \(presenter.getTwitTweets())"
         favouritesLabel.text = "Favourites: \(presenter.getTwitFavourites())"
+        retweetLabel.text = "Retweets: \(presenter.getTwitRetweets())"
+        replayLabel.text = "Replies: \(presenter.getTwitReplies())"
         
         guard let longitude = presenter.getTwitLongitude() else {
             mapView.isHidden = true
