@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "TweeterServices",
+        "repositoryURL": "https://github.com/Gomay88/TweeterServices.git",
+        "state": {
+          "branch": "master",
+          "revision": "4a4b311c1f52d607d633dd36755bbf74249c613f",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
