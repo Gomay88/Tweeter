@@ -6,7 +6,8 @@ struct Twit: Codable {
     let twitText: String
     let avatar: String
     let name: String
-    let location: String?
+    let longitude: Double?
+    let latitude: Double?
     let followers: Int
     let tweets: Int
     let favourites: Int

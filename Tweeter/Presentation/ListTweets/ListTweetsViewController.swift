@@ -38,6 +38,15 @@ class ListTweetsViewController: UIViewController, Alertable, Spinnable {
             self.tableView.reloadData()
         })
     }
+    
+    func navigateToTwitDetail(twit: Twit) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let twitDetailViewController = storyBoard.instantiateViewController(withIdentifier: "TwitDetailViewController") as? TwitDetailViewController else {
+            return
+        }
+        twitDetailViewController.presenter = TwitDetailPresenterDefault(twit: twit)
+        present(twitDetailViewController, animated: true)
+    }
 }
 
 extension ListTweetsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -51,14 +60,9 @@ extension ListTweetsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListTweetsCell", for: indexPath) as! ListTweetsCell
+        cell.avatarImageView.load(url: presenter.twitImagePathForRow(row: indexPath.row))
         cell.nameLabel.text = presenter.twitAuthorForRow(row: indexPath.row)
         cell.twitLabel.text = presenter.twitTextForRow(row: indexPath.row)
-        
-        guard let url = presenter.twitImagePathForRow(row: indexPath.row) else {
-            return cell
-        }
-        
-        cell.avatarImageView.load(url: url)
         
         return cell
     }

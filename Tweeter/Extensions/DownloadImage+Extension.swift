@@ -2,7 +2,11 @@
 import UIKit
 
 extension UIImageView{
-    func load(url: URL) {
+    func load(url: URL?) {
+        guard let url = url else {
+            return
+        }
+        
         startSpinner()
         DispatchQueue.global().async { [weak self] in
             do {

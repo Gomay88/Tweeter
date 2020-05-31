@@ -76,6 +76,6 @@ class ListTweetsPresenterDefault: ListTweetsPresenter {
     }
     
     func didSelectTwit(row: Int) {
-        
+        view?.navigateToTwitDetail(twit: twits[row])
     }
 }
